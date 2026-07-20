@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>All Classmates</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .all-container{max-width:1200px;margin:30px auto;padding:20px;background:rgba(255,255,255,0.9);border-radius:14px}
+    .all-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+    .all-header h1{margin:0;font-size:1.6rem;color:#4b0082}
+    .images-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px}
+    .img-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.08);text-align:center}
+    .img-card img{width:100%;height:160px;object-fit:cover;display:block}
+    .img-card p{padding:10px;font-weight:600;color:#333;margin:0}
+    @media (max-width:480px){.img-card img{height:120px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="all-container">
+      <div class="all-header">
+        <h1>All Classmate Images</h1>
+        <div>
+          <a href="index.html" style="color:#4b0082;font-weight:700;text-decoration:none">← Back to Gallery</a>
+        </div>
+      </div>
+
+      <div class="images-grid" id="imagesGrid"></div>
+    </div>
+  </div>
+
+  <script>
+    const images = [
+      'class mate 001.jpg','class mate 002.jpg','class mate 003.jpg','class mate 004.jpg',
+      'class mate 005.jpg','class mate 006.jpg','class mate 007.jpg','class mate 008.jpg',
+      'class mate 009.jpg','class mate 010.jpg','class mate 011.jpg','class mate 012.jpg',
+      'class mate 013.jpg','class mate 014.jpg','pics/IMG-20260702-WA0011.jpg','pics/IMG-20260702-WA0012.jpg','pics/IMG-20260702-WA0015.jpg','pics/IMG-20260702-WA0014.jpg','pics/IMG-20260702-WA0019.jpg','pics/IMG-20260702-WA0044.jpg','pics/IMG-20260702-WA0046.jpg','pics/IMG-20260702-WA0047.jpg','pics/IMG-20260702-WA0042.jpg','pics/IMG-20260702-WA0038.jpg','pics/IMG-20260702-WA0036.jpg','pics/IMG-20260702-WA0034.jpg','pics/IMG-20260702-WA0032.jpg','pics/IMG-20260702-WA0029.jpg'
+    ];
+
+    const grid = document.getElementById('imagesGrid');
+
+    images.forEach((src, idx) => {
+      const card = document.createElement('div');
+      card.className = 'img-card';
+      const displayNumber = src === 'pics/IMG-20260702-WA0029.jpg' ? 29 : (idx + 1);
+      card.innerHTML = `
+        <a href="portfolio.html?student=${idx}" style="color:inherit;text-decoration:none">
+          <img src="${src}" alt="Classmate ${displayNumber}">
+          <p>Classmate ${displayNumber}</p>
+        </a>
+      `;
+      grid.appendChild(card);
+    });
+  </script>
+</body>
+</html>

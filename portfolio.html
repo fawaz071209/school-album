@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="portfolio-page">
+    <div class="container">
+        <a class="back-link" href="index.html">← Back to gallery</a>
+        <div class="profile-card">
+            <div class="profile-hero">
+                <div class="profile-image">
+                    <img id="profileImage" src="" alt="Student portrait">
+                </div>
+                <div class="profile-details">
+                    <p class="profile-label">Student Portfolio</p>
+                    <h1 id="studentName">Student Name</h1>
+                    <p id="studentTitle" class="profile-title"></p>
+                    <div class="profile-meta">
+                        <span id="studentCourse"></span>
+                        <span id="studentEmail"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-content">
+                <h2>About</h2>
+                <p id="studentBio"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const studentProfiles = Array.from({ length: 120 }, (_, i) => {
+            let name;
+            if (i === 0) {
+                name = 'JINADU FAWAZ';
+            } else if (i === 1) {
+                name = 'OLUWAFERONMI MARTIN';
+            } else if (i === 2) {
+                name = 'SERIKI HIKMAH';
+            } else if (i === 3) {
+                name = 'CHINEMELUM EBUBU';
+            } else if (i === 4) {
+                name = 'ALAWODE YEWANDE';
+            } else if (i === 5) {
+                name = 'ADESUKO IREMIDE';
+            } else if (i === 8) {
+                name = 'AWE MAVELOUS';
+            } else if (i === 10) {
+                name = 'OGBONNA VICTOR';
+            } else if (i === 12) {
+                name = 'ADISA ABDULSALAM';
+            } else if (i === 15) {
+                name = 'OLOWOLAYEMO FAREEDAH';
+            } else if (i === 16) {
+                name = 'OLAJIDE ABDUL-WARIS';
+            } else if (i === 18) {
+                name = 'ERIK PRINCESS';
+            } else if (i === 19) {
+                name = 'JINADU FIRDAUS';
+            } else if (i === 20) {
+                name = 'LINUS ERYKAH';
+            } else if (i === 21) {
+                name = 'OLAREWAJU TEMILOLA';
+            } else if (i === 22) {
+                name = 'AYANDA ZAINAB';
+            } else if (i === 23) {
+                name = 'OGHOBASE VICTOR';
+            } else if (i === 24) {
+                name = 'MUSA JABIR';
+            } else if (i === 26) {
+                name = 'OLAYEMI JOSEPH';
+            } else if (i === 28) {
+                name = 'BELLO HABIBAH';
+            } else if (i === 29) {
+                name = 'WILLIAMS DANIEL';
+            } else if (i === 30) {
+                name = 'OLATUNDE IBUKUN';
+            } else if (i === 31) {
+                name = 'MOHAMMED KAMEELAH';
+            } else if (i === 32) {
+                name = 'OJEMBE ANJOLAH';
+            } else if (i === 33) {
+                name = 'AKANDE ZAINAB';
+            } else if (i === 34) {
+                name = 'SALIU AJOKE';
+            } else if (i === 36) {
+                name = 'BILAL and SANI MOHAMMED';
+            } else if (i === 38) {
+                name = 'IBRAHIM MARIAM';
+            } else {
+                name = `Student ${i + 1}`;
+            }
+            return {
+                name,
+                title: i === 0 ? 'Web Development Student' : 'Student',
+                course: i === 0 ? 'Computer Science' : i === 19 ? 'Commerce' : i === 36 ? 'Science and Commerce' : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 20, 21, 23, 24, 25, 27, 28, 31, 33, 34, 37, 38].includes(i) ? 'Sciences' : 'General Studies',
+                email: i === 0 ? 'fawazjinadu8@gmail.com' : i === 1 ? 'Oluwaferonmimartins933@gmail.com' : i === 2 ? 'Nataisleng@gmail.com' : i === 4 ? 'alawodeyewande234@gmail.com' : i === 10 ? 'ogbonnav91@gmail.com' : i === 12 ? 'adisaabdulsalam24@gmail.com' : `student${i + 1}@seylekcollege.edu`,
+                bio: i === 0
+                    ? 'It has been an interesting jorney and i loved the way it ended'
+                    : 'This student is part of the Seylek CTY College community and is growing their skills through creative learning and collaboration.'
+            };
+        });
+
+        function getStudentImageSrc(index) {
+            const imageMap = {
+                0: './class mate 001.jpg',
+                1: './class mate 002.jpg',
+                2: './class mate 003.jpg',
+                3: './class mate 004.jpg',
+                4: './class mate 005.jpg',
+                5: './class mate 006.jpg',
+                6: './class mate 007.jpg',
+                7: './class mate 008.jpg',
+                8: './class mate 009.jpg',
+                9: './class mate 010.jpg',
+                10: './class mate 011.jpg',
+                11: './class mate 012.jpg',
+                12: './class mate 013.jpg',
+                13: './class mate 014.jpg',
+                14: './pics/IMG-20260702-WA0011.jpg',
+                15: './pics/IMG-20260702-WA0012.jpg',
+                16: './pics/IMG-20260702-WA0015.jpg',
+                17: './pics/IMG-20260702-WA0014.jpg',
+                18: './pics/IMG-20260702-WA0019.jpg',
+                19: './pics/IMG-20260702-WA0044.jpg',
+                20: './pics/IMG-20260702-WA0046.jpg',
+                21: './pics/IMG-20260702-WA0047.jpg',
+                22: './pics/IMG-20260702-WA0042.jpg',
+                23: './pics/IMG-20260702-WA0038.jpg',
+                24: './pics/IMG-20260702-WA0036.jpg',
+                25: './pics/IMG-20260702-WA0034.jpg',
+                26: './pics/IMG-20260702-WA0032.jpg',
+                27: './pics/IMG-20260702-WA0028.jpg',
+                28: './pics/IMG-20260702-WA0029.jpg',
+                29: './pics/IMG-20260702-WA0030.jpg',
+                30: './pics/IMG-20260702-WA0027.jpg',
+                31: './pics/IMG-20260702-WA0026.jpg',
+                32: './pics/IMG-20260702-WA0024.jpg',
+                33: './pics/IMG-20260702-WA0023.jpg',
+                34: './pics/IMG-20260702-WA0022.jpg',
+                35: './pics/IMG-20260702-WA0019.jpg',
+                36: './pics/IMG-20260702-WA0018.jpg',
+                37: './pics/IMG-20260702-WA0017.jpg',
+                38: './pics/IMG-20260702-WA0016.jpg'
+            };
+            return imageMap[index] || `https://picsum.photos/400/400?random=${index + 1}`;
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        const requestedIndex = Number(params.get('student')) || 0;
+        const safeIndex = Math.min(Math.max(requestedIndex, 0), studentProfiles.length - 1);
+        const student = studentProfiles[safeIndex];
+
+        document.getElementById('profileImage').src = getStudentImageSrc(safeIndex);
+        document.getElementById('profileImage').alt = student.name;
+        document.getElementById('studentName').textContent = student.name;
+        document.getElementById('studentTitle').textContent = student.title;
+        document.getElementById('studentCourse').textContent = student.course;
+        document.getElementById('studentEmail').textContent = student.email;
+        document.getElementById('studentBio').textContent = student.bio;
+    </script>
+</body>
+</html>
