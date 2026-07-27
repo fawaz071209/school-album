@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>All Classmates</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <style>
+    .all-container{max-width:1200px;margin:30px auto;padding:20px;background:rgba(255,255,255,0.9);border-radius:14px}
+    .all-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+    .all-header h1{margin:0;font-size:1.6rem;color:#4b0082}
+    .images-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px}
+    .img-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.08);text-align:center}
+    .img-card img{width:100%;height:160px;object-fit:cover;display:block}
+    .img-card p{padding:10px;font-weight:600;color:#333;margin:0}
+    @media (max-width:480px){.img-card img{height:120px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="all-container">
+      <div class="all-header">
+        <h1>All Classmate Images</h1>
+        <div>
+          <a href="index.html" style="color:#4b0082;font-weight:700;text-decoration:none">← Back to Gallery</a>
+        </div>
+      </div>
+
+      <div class="images-grid" id="imagesGrid"></div>
+    </div>
+  </div>
+
+  <!-- Now reads from the same students-data.js source instead of a
+       separately hand-typed filename list, so it can't drift out of
+       sync with the gallery or portfolio pages. -->
+  <script type="module">
+    import { students } from './assets/js/students-data.js';
+
+    const grid = document.getElementById('imagesGrid');
+
+    grid.innerHTML = students
+      .map(
+        (s) => `
+          <a href="portfolio.html?student=${s.id}" style="color:inherit;text-decoration:none">
+            <div class="img-card">
+              <img src="${s.image}" alt="${s.name}" loading="lazy">
+              <p>${s.name}</p>
+            </div>
+          </a>
+        `
+      )
+      .join('');
+  </script>
+</body>
+</html>

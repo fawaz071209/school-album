@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Gallery</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/modal.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header-box">
+            <div class="header-badge-slot" aria-label="School badge">
+                <img src="Screenshot_20260702-025514~2.png" alt="Seylek Schools Badge">
+            </div>
+            <div class="header-content">
+                <h1>SEYLEK CTY COLLEGE - Class Gallery</h1>
+                <p class="subtitle">Meet our classmates</p>
+                <p class="highlight-badge">SET 2K"26</p>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-bar" placeholder="Search for a student name..." aria-label="Search students by name">
+        </div>
+
+        <p id="resultsCount" class="results-count"></p>
+
+        <div class="gallery" id="studentGallery"></div>
+    </div>
+
+    <!-- type="module" = native browser ES modules. No bundler, no
+         library install, just modern JS the browser understands. -->
+    <script type="module" src="./assets/js/app.js"></script>
+</body>
+</html>

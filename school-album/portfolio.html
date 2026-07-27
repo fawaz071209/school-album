@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portfolio</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/modal.css">
+</head>
+<body class="portfolio-page">
+    <div class="container">
+        <a class="back-link" href="index.html">← Back to gallery</a>
+        <div class="profile-card">
+            <div class="profile-hero">
+                <div class="profile-image">
+                    <img id="profileImage" src="" alt="Student portrait">
+                </div>
+                <div class="profile-details">
+                    <p class="profile-label">Student Portfolio</p>
+                    <h1 id="studentName">Student Name</h1>
+                    <p id="studentTitle" class="profile-title"></p>
+                    <div class="profile-meta">
+                        <span id="studentCourse"></span>
+                        <span id="studentEmail"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-content">
+                <h2>About</h2>
+                <p id="studentBio"></p>
+            </div>
+            <div class="profile-content modal-personal">
+                <h2>In Their Own Words</h2>
+                <dl class="personal-grid">
+                    <div><dt>Best friend</dt><dd id="pd-bestFriend"></dd></div>
+                    <div><dt>Best subject</dt><dd id="pd-bestSubject"></dd></div>
+                    <div><dt>Motivational quote</dt><dd id="pd-quote"></dd></div>
+                    <div><dt>University plans</dt><dd id="pd-universityGoal"></dd></div>
+                    <div><dt>Teacher they'll miss</dt><dd id="pd-teacherMiss"></dd></div>
+                    <div><dt>What they'll miss about Seylek</dt><dd id="pd-whatMiss"></dd></div>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <!-- This page now reads from the SAME students-data.js module the
+         gallery uses. Standalone links like portfolio.html?student=5
+         still work — nothing is duplicated anymore. -->
+    <script type="module">
+        import { getStudentById } from './assets/js/students-data.js';
+
+        const params = new URLSearchParams(window.location.search);
+        const requestedId = Number(params.get('student')) || 0;
+        const student = getStudentById(requestedId) ?? getStudentById(0);
+
+        document.getElementById('profileImage').src = student.image;
+        document.getElementById('profileImage').alt = student.name;
+        document.getElementById('studentName').textContent = student.name;
+        document.getElementById('studentTitle').textContent = student.title;
+        document.getElementById('studentCourse').textContent = student.course;
+        document.getElementById('studentEmail').textContent = student.email;
+        document.getElementById('studentBio').textContent = student.bio;
+
+        document.getElementById('pd-bestFriend').textContent = student.bestFriend;
+        document.getElementById('pd-bestSubject').textContent = student.bestSubject;
+        document.getElementById('pd-quote').textContent = student.quote;
+        document.getElementById('pd-universityGoal').textContent = student.universityGoal;
+        document.getElementById('pd-teacherMiss').textContent = student.teacherMiss;
+        document.getElementById('pd-whatMiss').textContent = student.whatMiss;
+    </script>
+</body>
+</html>
