@@ -14,9 +14,9 @@
 
 import { PERSONAL_DETAILS } from './personal-details.generated.js';
 
-// Real roster size — ids 0-53 all have entries in NAMES below.
+// Real roster size — ids 0-73 all have entries in NAMES below.
 // Raise this only after adding the new student(s) to NAMES/IMAGES/EMAILS.
-const TOTAL_STUDENTS = 54;
+const TOTAL_STUDENTS = 74;
 
 const NOT_SHARED = 'Not shared yet';
 
@@ -98,6 +98,27 @@ const NAMES = {
   51: 'ABUBAKAR FATIMA',
   52: 'TIJANI MUBARAK',
   53: 'USMAN SAIDAH',
+  // Form submitters added from CSV — photos pending from school admin
+  54: 'WILTON-WADDELL OLADAYO',
+  55: 'OBIANUSI MIRACLE',
+  56: 'ADETONA KHALEED',
+  57: 'OLOWO NAJIAT',
+  58: 'KOMOLAFE AJIBOLA',
+  59: 'OSHIYEMI MERCY',
+  60: 'YAKUB ABDULSAMAD',
+  61: 'AKINOLA FARAMADE AJIBOLA',
+  62: 'ODUNLAMI AMEEDAT OLOLADE',
+  63: 'MOHAMMED ABRAHAM',
+  64: 'AYANDA AL-AMIN',
+  65: 'EZEMEKA CHINAZA',
+  66: 'ADEYINKA MOYOSORE',
+  67: 'OWOADE HAMID',
+  68: 'OYENIYI OPEYEMI',
+  69: 'OLABISI MUKRAM',
+  70: 'RUFAI HUBIEDAH',
+  71: 'SALAU AMINAT',
+  72: 'SULAIMON MARIAM',
+  73: 'SALIU THANIYAH',
 };
 
 // id -> image path (relative to the project root, same "pics/" folder
@@ -151,6 +172,7 @@ const IMAGES = {
   45: './pics/IMG-20260709-WA0245.jpg',
   46: './pics/IMG-20260709-WA0244.jpg',
   47: './pics/IMG-20260709-WA0234.jpg',
+  51: './pics/ABUBAKAR FATIMA.jpg',
 };
 
 // id -> email (only known ones; rest get an auto-generated placeholder)
@@ -161,11 +183,32 @@ const EMAILS = {
   4: 'alawodeyewande234@gmail.com',
   10: 'ogbonnav91@gmail.com',
   12: 'adisaabdulsalam24@gmail.com',
+  54: 'oladayowaddell61@gmail.com',
+  55: 'obianusimiraclengozichukwu@gmail.com',
+  56: 'adetonakhaleed@gmail.com',
+  57: 'olowonajiat@gmail.com',
+  58: 'komolafea915@gmail.com',
+  59: 'mercyadeolaoshiyemi@gmail.com',
+  60: 'samadyakub815@gmail.com',
+  61: 'akinolaframade50@gmail.com',
+  62: 'odunlamiamidat@gmail.com',
+  63: 'abeez6969@gmail.com',
+  64: 'ayandaalamin910@gmail.com',
+  65: 'cjceece@gmail.com',
+  66: 'anjolaoluwamoyosore02@gmail.com',
+  67: 'owoadehamid@gmail.com',
+  68: 'oyeniyiopeyemi876@gmail.com',
+  69: 'mukrameni@gmail.com',
+  70: 'rufaihubiedah@gmail.com',
+  71: 'aminatsalau510@gmail.com',
+  72: 'mariamsulaimon843@gmail.com',
+  73: 'saliuthaniyah4@gmail.com',
 };
 
 // ids known to be in the science stream (mirrors the original portfolio.html logic)
 const SCIENCE_STREAM = new Set([
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 20, 21, 23, 24, 25, 27, 28, 31, 33, 34, 37, 38,
+  56, 58, 63, 64, 65, 67, 68, 72, 73,
 ]);
 
 function courseFor(id) {

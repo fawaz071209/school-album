@@ -25,6 +25,7 @@ const outPath = join(__dirname, '..', 'assets', 'js', 'personal-details.generate
 
 function defaultCsvPaths() {
   const preferred = [
+    join(dataDir, 'Class Gallery (Responses) - Form Responses 1.csv'),
     join(dataDir, 'Class Gallery.csv'),
     join(dataDir, 'responses.csv'),
     join(dataDir, 'responses.sample.csv'),
@@ -123,6 +124,7 @@ function resolveColumns(header) {
 function normalizeName(name) {
   return name
     .trim()
+    .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '') // strip emoji
     .toLowerCase()
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .replace(/[.'"-]/g, ' ')
@@ -153,6 +155,20 @@ function tokenVariants(token) {
     azeemah: 'azeemah',
     omotosho: 'omotosho',
     gbemisola: 'gbemisola',
+    feranmi: 'oluwaferonmi',
+    oluwaferonmi: 'feranmi',
+    martins: 'martin',
+    martin: 'martins',
+    oladele: 'oladayo',
+    oladayo: 'oladele',
+    alamin: 'amin',
+    amin: 'alamin',
+    hubeidah: 'hubiedah',
+    hubiedah: 'hubeidah',
+    waddell: 'wilton',
+    wilton: 'waddell',
+    mushrafat: 'ajoke',
+    ajoke: 'mushrafat',
   };
   if (aliases[token]) variants.add(aliases[token]);
   return variants;
